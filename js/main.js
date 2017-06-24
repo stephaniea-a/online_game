@@ -55,16 +55,16 @@ $(function () {
 		arrayOfImages = shuffle(arrayOfImages);
 		//console.log(arrayOfImages);
 
-	// function createNewBoard () {
-	// 	boxesFlipped = 0;
-	// 	var output = '';
-	// 	shuffle(arrayOfImages);
-	// 	for (var i = 0; i < arrayOfImages.length; i++) {
-	// 		output = output + "<div id=box" + i + " <img src='" + arrayOfImages[i] + "'/></div>"
+	function createNewBoard () {
+		boxesFlipped = 0;
+		var output = '';
+		shuffle(arrayOfImages);
+		for (var i = 0; i < arrayOfImages.length; i++) {
+			output = output + "<div id=box" + i + " <img src='" + arrayOfImages[i] + "'/></div>"
 
-	// 	}
-	// 	$main.html(output);
-	// } createNewBoard();
+		}
+		$main.html(output);
+	} createNewBoard();
 
 	//function to flip tile and display images
 	// function displayImage () {
@@ -90,7 +90,6 @@ $(function () {
 
     	console.log('array' + arrayOfImages);
     }
-    //currentDiv.eq(i).append(addImage);
 
     for(var j = 0; j < arrayOfDivs.length; j++){
     		

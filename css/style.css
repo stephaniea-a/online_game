@@ -1,12 +1,19 @@
 body{
 	background-color: blue;
-	//font-size: 0;
+	/*font-size: 0;*/
 }
 
-main {
-	height: 629px;
-	width: 629px;
+#gameBoard {
+	height: 710px;
+	width: 701px;
 	background-color: white;
+	margin: 0 auto;
+}
+
+#tiles{
+	height: 710px;
+	width: 701px;
+	background-color: red;
 	margin: 0 auto;
 }
 
@@ -15,16 +22,29 @@ h1 {
 	font-size: 25px;
 }
 
-main > div {
+#tiles div {
 	background-color: lightgrey;
 	display: inline-block;
 	height: 150px;
 	width: 150px;
 	border: solid black 2px;
-	/*background-size: 150px;*/
-	background-repeat: repeat-x;
-	/*background-image: url(../images/angry_farmer.jpg);*/
+	margin: 5px;
+	padding: 5px;
+	background-size: 150px;
+	cursor: pointer;
+	
 }
+
+#gameButtons {
+    display: block;
+    margin: 20px;
+    text-align: center;
+}
+
+/*#main-board div img {
+	display: none;
+}*/
+
 
 
 /*image URLs

@@ -1,19 +1,18 @@
 body{
-	background-color: blue;
-	/*font-size: 0;*/
+	background-color: lightblue;
 }
 
 #gameBoard {
 	height: 710px;
 	width: 701px;
-	background-color: blue;
+	background-color: lightblue;
 	margin: 0 auto;
 }
 
 #tiles{
 	height: 710px;
 	width: 701px;
-	background-color: red;
+	background-color: lightblue;
 	margin: 0 auto;
 }
 
@@ -33,7 +32,8 @@ h1 {
 	padding: 5px;
 	background-size: 150px;
 	cursor: pointer;
-	
+	border-radius: 20px;
+	box-shadow: 3px 3px 5px grey;
 }
 
 #tiles div img {

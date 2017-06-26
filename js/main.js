@@ -11,6 +11,8 @@ $(function () {
 	var $gameBoard = $('#gameBoard');
 	var $tiles = $('#tiles');
 	var $counter = $('#counter');
+	var $tilesDiv = $('#tiles div');
+	var $selected = $('.selected');
 
 	var counter = 0;
 	var tileChosen = "";
@@ -41,25 +43,78 @@ $(function () {
 	// Create new boards and place images in random order
 	function createNewBoard() {
 		shuffle(arrayOfImages);
-	  for (var i = 0; i < arrayOfImages.length; i++) {
+	  	for (var i = 0; i < arrayOfImages.length; i++) {
 	        output = "<div id=box" + i + "><img src='" + arrayOfImages[i] + "'/></div>"
 	        $tiles.append(output);
-	        }
+	    }
 	        $('div img').hide();
 	        //$('#tiles div img').css('opacity', '0');
   	} 
 
   	// Show image on clicked divs
   	$('#tiles div').click(function(event){
-  		//debugger
+  		$(this).addClass('selected');
 		$(this).children().show();
+		//counting clicks and adding to counter
+		$counter.html(function(i, val) { return +val+1 });
+		displayTile();
 
   	});
+
+  	// Display Tiles
+  	function displayTile (){
+  		var $selected = $('.selected');
+  		if($selected.length == 2) {
+
+  			var src1 = $selected.eq(1).find('img').attr('src');
+  			var src2 = $selected.eq(0).find('img').attr('src');
+
+  			if (src1 === src2) {
+  				console.log('its a match');
+  			} else {
+  				console.log('no match');
+  				$selected.removeClass('selected');
+
+  				setTimeout(function() {
+					$selected.find('img').hide();
+				}, 2000);
+  				
+  			}
+  			// console.log('two images have the selected class')
+    		//var lastclicked = "";
+    	}
+    }
+
+ 
+
+
+
+
+  		// if ($('#tiles, div').hasClass('selected')){
+  		// 	console.log('has class selected');
+  			//$('#tiles, div').animate({right: -700 +"px"}, 2000);
+  		// }
+  		
   	
 
-	// Reset Game 
+
+
+  		//if ($(this))
+
+  		//debugger
+  		
+            
+        
+
+  		//var id = $(this).attr('src');
+
+  	
+
+  		
+
+
+  	 
 	
-	// Create and load new board
 	
   	// $mainBoard.on('click', 'div', function(event) {
   	// 	if ($(this).attr("class") == "hidden") {
@@ -84,15 +139,6 @@ $(function () {
 
 	// 	}
 	// }
-
-
-	// $main.on('click', 'div', function(event) {
-	// 	var img = $('div img');
-	// 	$(this).html(img).show();
-	// 	//debugger
-	// 	console.log('clicked');
-		
- //    }); 
 
  //    $div.each(arrayOfImages, function(index, value) {
  //    	$main.append(addImage);

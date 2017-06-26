@@ -23,6 +23,7 @@ h1 {
 }
 
 #tiles div {
+	vertical-align: top;
 	background-color: white;
 	display: inline-block;
 	height: 150px;
@@ -54,10 +55,12 @@ h1 {
     margin: 10px;
 }
 
-
+.selected img {
+	opacity: 1; 
+}
 
 .hidden {
-
+	visibility: hidden;
 }
 
 

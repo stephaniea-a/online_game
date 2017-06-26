@@ -19,18 +19,9 @@ $(function () {
 
 	
 	// Call functions
-	shuffle(arrayOfImages);
 	createNewBoard();
 	
-
 	//FUNCTIONS
-
-	$(arrayOfImages).each(function() {
-    var image = $('<img />').attr('src', this);
-    console.log(image);
-	});
-
-
 
 	// Shuffle Array using Fisher-Yates method
 	function shuffle(array) {
@@ -47,76 +38,29 @@ $(function () {
 		  return array;
 	} 
 
-	//place images in random order
-
-	// function createNewBoard() {
-	// 	shuffle ();
-	// 	var allImgs = $(gameBoard).children();
-	//     var thisImg = $(gameBoard + " div:first-child");
-	//     var imgsArr = new Array();
-	    
-	//     for (var i = 0; i < allImgs.length; i++) {
-	//         imgsArr[i] = $("#" + thisImg.attr("id") + " img").attr("src");
-	//         thisImg = thisImg.next();
-	//     }
-	    
-	//     thisImg = $(gameBoard + " div:first-child");
-	    
-	//     for (var z = 0; z < allImgs.length; z++) {
-	//         var rn = doRandom(0, imgsArr.length - 1);
-	        
-	//         $("#" + thisImg.attr("id") + " img").attr("src", imgsArr[rn]);
-	//         imgsArr.splice(rn, 1);
-	//         thisImg = thisImg.next();
- //    }
-
-
-
-
-
+	// Create new boards and place images in random order
 	function createNewBoard() {
 		shuffle(arrayOfImages);
 	  for (var i = 0; i < arrayOfImages.length; i++) {
-	        //output = "<div id=box" + i + "onclick='flipTile' <img src='" + arrayOfImages[i] + "'/></div>"
 	        output = "<div id=box" + i + "><img src='" + arrayOfImages[i] + "'/></div>"
-	        //output = "<img src='" + arrayOfImages[i] + "'/>"
 	        $tiles.append(output);
 	        }
-	           
+	        $('div img').hide();
+	        //$('#tiles div img').css('opacity', '0');
   	} 
+
+  	// Show image on clicked divs
+  	$('#tiles div').click(function(event){
+  		//debugger
+		$(this).children().show();
+
+  	});
   	
 
-	// Reset Game
-	function resetGame (){
-		shuffle();
-     
-	    $gameBoard.hide();
-	    $gameBoard.css("visibility", "visible");
-	     
-	    $("#success").remove();
-	     
-	    counter = 0;
-	    $counter.html("" + counter);
-	     
-	    tileChosen = "";
-	    tileFlipped = "";
-	    match = 0;
-	     
-	    return false;
-	} 
-
-
-	
+	// Reset Game 
 	
 	// Create and load new board
 	
-
-
-
-  	$('#div1').click(function(event){
-  		$(this).css('background-color', 'red');
-  	});
-
   	// $mainBoard.on('click', 'div', function(event) {
   	// 	if ($(this).attr("class") == "hidden") {
    //        if (choice1 == undefined) {
@@ -132,9 +76,6 @@ $(function () {
     	//$div.css("background-image", "url(../p1_online_game/images/angry_farmer.jpg) no-repeat");
     // });
 
-
-	
-
 	//function to flip tile and display images
 	// function displayImage () {
 	// 	if(arrayOfImages.length < 2 && $div.html() == '') {
@@ -145,11 +86,6 @@ $(function () {
 	// }
 
 
-	//create array of image urls
-    //var addImage = $("<img src=../p1_online_game/images/sheep.jpg />");
-
-    
-
 	// $main.on('click', 'div', function(event) {
 	// 	var img = $('div img');
 	// 	$(this).html(img).show();
@@ -157,21 +93,6 @@ $(function () {
 	// 	console.log('clicked');
 		
  //    }); 
-
-    // for (var i = 0; i < arrayOfImages.length; i++) {
-    	
-    // 	var currentImage = arrayOfImages[i];
-    // 	var addImage = $("<img src='" + currentImage + "'/>");
-
-    // 	console.log('array' + arrayOfImages);
-    // }
-
-    // for(var j = 0; j < arrayOfDivs.length; j++){
-    		
-    // 	var currentDiv = arrayOfDivs[j];
-    // 	console.log('arrayOfDivs');
-    		
-    // }
 
  //    $div.each(arrayOfImages, function(index, value) {
  //    	$main.append(addImage);

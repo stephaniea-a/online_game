@@ -71,11 +71,14 @@ $(function () {
 
   			if (src1 === src2) {
   				console.log('its a match');
+  				$selected.removeClass('selected');
+  				$selected.find('img').addClass('match');
+
   			} else {
   				console.log('no match');
   				$selected.removeClass('selected');
-
-  				setTimeout(function() {
+  			
+				setTimeout(function() {
 					$selected.find('img').hide();
 				}, 2000);
   				
@@ -84,6 +87,7 @@ $(function () {
     		//var lastclicked = "";
     	}
     }
+    
 
  
 

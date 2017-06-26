@@ -8,21 +8,29 @@ $(function () {
 	'../p1_online_game/images/cow.jpg','../p1_online_game/images/dog.jpg','../p1_online_game/images/goat.jpg',
 	'../p1_online_game/images/horse.png','../p1_online_game/images/pig.png', '../p1_online_game/images/sheep.jpg'];
 
-	var storeChosenImages = [];
-	var storeChosenBoxes = [];
-	var tilesFlipped = 0;
-	var output = 0;
-	var choice1 = 0;
-	var choice2 = 0;
+	var $gameBoard = $('#gameBoard');
+	var $tiles = $('#tiles');
+	var $counter = $('#counter');
 
-	var $main = $('main');
-	var $div = $('div');
-	var $mainBoard = $('#main-board');
+	var counter = 0;
+	var tileChosen = "";
+	var tileFlipped = "";
+	var match = 0;
+
 	
 	// Call functions
-	//createNewBoard();
+	shuffle(arrayOfImages);
+	createNewBoard();
+	
 
 	//FUNCTIONS
+
+	$(arrayOfImages).each(function() {
+    var image = $('<img />').attr('src', this);
+    console.log(image);
+	});
+
+
 
 	// Shuffle Array using Fisher-Yates method
 	function shuffle(array) {
@@ -37,24 +45,72 @@ $(function () {
 		    array[randomIndex] = temporaryValue;
 		}
 		  return array;
-	}
-	
-	// Create and load new board
+	} 
+
+	//place images in random order
+
+	// function createNewBoard() {
+	// 	shuffle ();
+	// 	var allImgs = $(gameBoard).children();
+	//     var thisImg = $(gameBoard + " div:first-child");
+	//     var imgsArr = new Array();
+	    
+	//     for (var i = 0; i < allImgs.length; i++) {
+	//         imgsArr[i] = $("#" + thisImg.attr("id") + " img").attr("src");
+	//         thisImg = thisImg.next();
+	//     }
+	    
+	//     thisImg = $(gameBoard + " div:first-child");
+	    
+	//     for (var z = 0; z < allImgs.length; z++) {
+	//         var rn = doRandom(0, imgsArr.length - 1);
+	        
+	//         $("#" + thisImg.attr("id") + " img").attr("src", imgsArr[rn]);
+	//         imgsArr.splice(rn, 1);
+	//         thisImg = thisImg.next();
+ //    }
+
+
+
+
+
 	function createNewBoard() {
-		tilesFlipped = 0;
-		var output = '';
 		shuffle(arrayOfImages);
 	  for (var i = 0; i < arrayOfImages.length; i++) {
-	        output = "<div id=box" + i + "onclick='flipTile' <img src='" + arrayOfImages[i] + "'/></div>"
+	        //output = "<div id=box" + i + "onclick='flipTile' <img src='" + arrayOfImages[i] + "'/></div>"
+	        output = "<div id=box" + i + "><img src='" + arrayOfImages[i] + "'/></div>"
 	        //output = "<img src='" + arrayOfImages[i] + "'/>"
-	        $mainBoard.append(output);
+	        $tiles.append(output);
 	        }
 	           
-  }
+  	} 
+  	
 
-  	function flipTile(tile,val){
+	// Reset Game
+	function resetGame (){
+		shuffle();
+     
+	    $gameBoard.hide();
+	    $gameBoard.css("visibility", "visible");
+	     
+	    $("#success").remove();
+	     
+	    counter = 0;
+	    $counter.html("" + counter);
+	     
+	    tileChosen = "";
+	    tileFlipped = "";
+	    match = 0;
+	     
+	    return false;
+	} 
 
-  	}
+
+	
+	
+	// Create and load new board
+	
+
 
 
   	$('#div1').click(function(event){
@@ -80,13 +136,13 @@ $(function () {
 	
 
 	//function to flip tile and display images
-	function displayImage () {
-		if(arrayOfImages.length < 2 && $div.html() == '') {
-			$div.addClass('flipped');
-			//$div.append() = val;
+	// function displayImage () {
+	// 	if(arrayOfImages.length < 2 && $div.html() == '') {
+	// 		$div.addClass('flipped');
+	// 		//$div.append() = val;
 
-		}
-	}
+	// 	}
+	// }
 
 
 	//create array of image urls

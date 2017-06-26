@@ -6,7 +6,7 @@ body{
 #gameBoard {
 	height: 710px;
 	width: 701px;
-	background-color: white;
+	background-color: blue;
 	margin: 0 auto;
 }
 
@@ -23,7 +23,7 @@ h1 {
 }
 
 #tiles div {
-	background-color: lightgrey;
+	background-color: white;
 	display: inline-block;
 	height: 150px;
 	width: 150px;
@@ -35,15 +35,30 @@ h1 {
 	
 }
 
+#tiles div img {
+	height: 150px;
+    width: 150px;
+}
+
 #gameButtons {
     display: block;
     margin: 20px;
     text-align: center;
 }
 
-/*#main-board div img {
-	display: none;
-}*/
+#gameButtons .button {
+    background-color: orange;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 10px;
+}
+
+
+
+.hidden {
+
+}
 
 
 

@@ -18,7 +18,8 @@ body{
 
 h1 {
 	text-align: center;
-	font-size: 25px;
+	font-size: 40px;
+	font-family: cursive;
 }
 
 #tiles div {
@@ -51,8 +52,8 @@ h1 {
     background-color: orange;
     border-radius: 10px;
     cursor: pointer;
-    padding: 5px 10px;
-    margin: 10px;
+    padding: 10px 30px;
+    margin: 30px;
 }
 
 .selected img {

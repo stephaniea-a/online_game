@@ -2,6 +2,33 @@ body{
 	background-color: lightblue;
 }
 
+#intro {
+	height: 700px;
+	width: 700px;
+	background-color: white;
+	margin: 0 auto;
+	background-image: url(../images/cartoon_farm.jpg);
+	background-repeat: no-repeat;
+	background-size: 700px;
+
+}
+
+#how-to-play {
+	height: 400px;
+	width: 400px;
+	background-color: white;
+	border: solid black 1px;
+	margin: 0 auto;
+	position: relative;
+    top: 10%;
+}
+
+#how-to-play p {
+	padding: 20px 20px 0px 30px;
+    font-size: 18px;
+    font-family: Arial;
+}
+
 #gameBoard {
 	height: 710px;
 	width: 701px;
@@ -19,7 +46,7 @@ body{
 h1 {
 	text-align: center;
 	font-size: 40px;
-	font-family: cursive;
+	font-family: Arial;
 }
 
 #tiles div {
@@ -42,6 +69,17 @@ h1 {
     width: 150px;
 }
 
+#begin{
+	background-color: orange;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px 30px;
+    margin: 30px;
+    margin: 246px;
+    position: relative;
+
+}
+
 #gameButtons {
     display: block;
     margin: 20px;
@@ -60,8 +98,10 @@ h1 {
 	opacity: 1; 
 }
 
-.match {
-	
+.transformed{
+  /* identical to rotateZ(45deg); */
+  transform: rotate(45deg);
+  background-color: blue;
 }
 
 

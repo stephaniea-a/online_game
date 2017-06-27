@@ -9,9 +9,12 @@ $(function () {
 	'../p1_online_game/images/horse.png','../p1_online_game/images/pig.png', '../p1_online_game/images/sheep.jpg'];
 
 	var $gameBoard = $('#gameBoard');
+	var $gameButtons = $('#gameButtons');
 	var $tiles = $('#tiles');
 	var $counter = $('#counter');
 	var $selected = $('.selected');
+	var $begin = $('#begin');
+	var $intro = $('#intro');
 
 	//var $tilesDiv = $('#tiles div');
 	//var $divImg = $('div img');
@@ -19,9 +22,25 @@ $(function () {
 	var counter = 0;
 	
 	// Call functions
-	createNewBoard();
-	
-	//FUNCTIONS
+	$gameButtons.hide();
+	$begin.on('click', function(event){
+		
+		console.log('click');
+		$intro.slideUp();
+		$gameButtons.show();
+		//$gameBoard.hide();
+		createNewBoard();
+
+		$('#tiles div').click(function(event){
+  			$(this).addClass('selected');
+			$(this).children().show();
+			//counting clicks and adding to counter
+			$counter.html(function(i, val) { return + val + 1 });
+			displayTile();
+
+  		})
+		//$gameBoard.slideUp();
+	})
 
 	// Shuffle Array using Fisher-Yates method
 	function shuffle(array) {
@@ -38,7 +57,6 @@ $(function () {
 		  return array;
 	} 
 
-	// Create new boards and place images in random order
 	function createNewBoard() {
 
 		shuffle(arrayOfImages);
@@ -48,16 +66,6 @@ $(function () {
 	    }
 	        $('div img').hide();
   	} 
-
-  	// Show image on clicked divs
-  	$('#tiles div').click(function(event){
-  		$(this).addClass('selected');
-		$(this).children().show();
-		//counting clicks and adding to counter
-		$counter.html(function(i, val) { return + val + 1 });
-		displayTile();
-
-  	});
 
   	// Display Tiles
   	function displayTile (){
@@ -72,11 +80,15 @@ $(function () {
   				console.log('its a match');
   				$selected.removeClass('selected');
   				$selected.find('img').addClass('match');
-  				debugger
+  				//debugger
 
   				if($('.match').length === 16) {
 
   					console.log('win');
+  					setTimeout(function(){
+  						$('#tiles div').addClass('transformed');
+  					}, 1000);
+  					
   				} else {
   					console.log('not yet')
   				}

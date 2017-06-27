@@ -85,9 +85,7 @@ $(function () {
   				if($('.match').length === 16) {
 
   					console.log('win');
-  					setTimeout(function(){
-  						$('#tiles div').addClass('transformed');
-  					}, 1000);
+  					winner();
   					
   				} else {
   					console.log('not yet')
@@ -125,7 +123,23 @@ $(function () {
 		return false;
 }
 
+	function winner (){
+		
+		setTimeout(function(){
+			var $gameButtons = $('#gameButtons');
+			$gameButtons.fadeOut();
+  			$('#tiles div').fadeOut();
+  			
+  		}, 2000);
 
+  		setTimeout(function(){
+  			$('#intro').fadeIn();
+  			$('#begin').hide();
+  			$('#how-to-play').html
+  			('<p> Congratulations! You have saved the farm and all the animals!</p>');
+  		}, 3000);
+  		
+	}
 
 
 });

@@ -10,7 +10,6 @@ body{
 	background-image: url(../images/cartoon_farm.jpg);
 	background-repeat: no-repeat;
 	background-size: 700px;
-
 }
 
 #how-to-play {
@@ -77,6 +76,7 @@ h1 {
     margin: 30px;
     margin: 246px;
     position: relative;
+    font-family: Arial;
 
 }
 
@@ -98,10 +98,9 @@ h1 {
 	opacity: 1; 
 }
 
-.transformed{
-  /* identical to rotateZ(45deg); */
-  transform: rotate(45deg);
-  background-color: blue;
+.winner {
+	font-size: 30px
+	color:;
 }
 
 

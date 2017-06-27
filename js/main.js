@@ -1,6 +1,5 @@
 $(function () {
 
-	// Declare variables;
 	var arrayOfImages = ['../p1_online_game/images/unhappy_farmer.jpg','../p1_online_game/images/chicken.jpg',
 	'../p1_online_game/images/cow.jpg','../p1_online_game/images/dog1.jpg','../p1_online_game/images/goat.jpg',
 	'../p1_online_game/images/horse.png','../p1_online_game/images/pig.png', '../p1_online_game/images/sheep.jpg', 
@@ -15,31 +14,24 @@ $(function () {
 	var $selected = $('.selected');
 	var $begin = $('#begin');
 	var $intro = $('#intro');
-
-	//var $tilesDiv = $('#tiles div');
-	//var $divImg = $('div img');
-
 	var counter = 0;
-	
-	// Call functions
+
 	$gameButtons.hide();
 	$begin.on('click', function(event){
-		
-		console.log('click');
+	
 		$intro.slideUp();
 		$gameButtons.show();
-		//$gameBoard.hide();
 		createNewBoard();
 
 		$('#tiles div').click(function(event){
+			animalSounds();
   			$(this).addClass('selected');
 			$(this).children().show();
+			//animalSounds ();
 			//counting clicks and adding to counter
 			$counter.html(function(i, val) { return + val + 1 });
 			displayTile();
-
   		})
-		//$gameBoard.slideUp();
 	})
 
 	// Shuffle Array using Fisher-Yates method
@@ -80,22 +72,16 @@ $(function () {
   				console.log('its a match');
   				$selected.removeClass('selected');
   				$selected.find('img').addClass('match');
-  				//debugger
 
   				if($('.match').length === 16) {
-
-  					console.log('win');
   					winner();
   					
   				} else {
-  					console.log('not yet')
+  					return $match;
   				}
 
   			} else {
-  				console.log('no match');
   				$selected.removeClass('selected');
-  				
-  			
 				setTimeout(function() {
 					$selected.find('img').fadeOut();
 				}, 1000);
@@ -135,11 +121,64 @@ $(function () {
   		setTimeout(function(){
   			$('#intro').fadeIn();
   			$('#begin').hide();
+  			$('#how-to-play p').addClass('winner');
   			$('#how-to-play').html
   			('<p> Congratulations! You have saved the farm and all the animals!</p>');
+  			$('#begin').show().html('Play again?')
   		}, 3000);
   		
 	}
+
+	function animalSounds (){
+
+		var chicken = new Audio("chicken.mp3");
+		var cow = new Audio("cow.mp3");
+		var dog = new Audio("dog.mp3");
+		var goat = new Audio("goat.mp3");
+		var horse = new Audio("horse.mp3");
+		var pig = new Audio("pig.mp3");
+		var sheep = new Audio("sheep.mp3");
+		var farmer = new Audio("farmer.mp3");
+
+		$('#tiles div').each(function(){
+			var imgSource = $(this).eq(0).find('img').attr("src");
+			//debugger;
+
+
+			if (imgSource === "../p1_online_game/images/chicken.jpg") {
+				chicken.play();
+
+				} else if (imgSource === "../p1_online_game/images/cow.jpg") {
+					cow.play();
+
+				} else if (imgSource === "../p1_online_game/images/dog1.jpg") {
+					dog.play();
+
+				} else if (imgSource === "../p1_online_game/images/goat.jpg") {
+					goat.play();
+
+				} else if (imgSource === "../p1_online_game/images/horse.png") {
+					horse.play();
+
+				} else if (imgSource === "../p1_online_game/images/pig.png") {
+					pig.play();
+
+				} else if (imgSource === "../p1_online_game/images/sheep.jpg") {
+					sheep.play();
+
+				} else if (imgSource === "../p1_online_game/images/unhappy_farmer.jpg") {
+					farmer.play();
+			}
+		
+				
+			
+		})
+
+
+	
+	}
+				
+	
 
 
 });

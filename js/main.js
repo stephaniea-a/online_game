@@ -16,23 +16,31 @@ $(function () {
 	var $intro = $('#intro');
 	var counter = 0;
 
+	
 	$gameButtons.hide();
 	$begin.on('click', function(event){
-	
+		
 		$intro.slideUp();
 		$gameButtons.show();
 		createNewBoard();
 
 		$('#tiles div').click(function(event){
-			animalSounds();
   			$(this).addClass('selected');
 			$(this).children().show();
-			//animalSounds ();
+			//debugger
+			var imgSource = $(this).find('img').attr("src");
+			animalSounds(imgSource);
+			
 			//counting clicks and adding to counter
 			$counter.html(function(i, val) { return + val + 1 });
 			displayTile();
-  		})
-	})
+
+			// $('#reset').click(function (event){
+			// 	reset();
+			// });
+  		});
+	});
+
 
 	// Shuffle Array using Fisher-Yates method
 	function shuffle(array) {
@@ -69,7 +77,8 @@ $(function () {
   			var src2 = $selected.eq(0).find('img').attr('src');
 
   			if (src1 === src2) {
-  				console.log('its a match');
+  				var pair = new Audio("ping.mp3")
+				pair.play();
   				$selected.removeClass('selected');
   				$selected.find('img').addClass('match');
 
@@ -93,13 +102,9 @@ $(function () {
     }
 
     //when Reset button is clicked
-    $('#reset').click(function(event){
-    	console.log('clicked');
-    	reset();
-
-    });
 
     function reset() {
+    	$gameButtons.hide();
     	shuffle(arrayOfImages);
     	$('#tiles').html("");
     	createNewBoard();
@@ -107,10 +112,9 @@ $(function () {
 		Counter = 0;
 		$counter.html("" + Counter);
 		return false;
-}
+	}
 
 	function winner (){
-		
 		setTimeout(function(){
 			var $gameButtons = $('#gameButtons');
 			$gameButtons.fadeOut();
@@ -129,7 +133,8 @@ $(function () {
   		
 	}
 
-	function animalSounds (){
+
+	function animalSounds (imgSource){
 
 		var chicken = new Audio("chicken.mp3");
 		var cow = new Audio("cow.mp3");
@@ -139,43 +144,35 @@ $(function () {
 		var pig = new Audio("pig.mp3");
 		var sheep = new Audio("sheep.mp3");
 		var farmer = new Audio("farmer.mp3");
+		
+		//var imgSource = $(this).find('img').attr("src");
 
-		$('#tiles div').each(function(){
-			var imgSource = $(this).eq(0).find('img').attr("src");
-			//debugger;
+		if (imgSource === "../p1_online_game/images/chicken.jpg") {
+			chicken.play();
 
+			} else if (imgSource === "../p1_online_game/images/cow.jpg") {
+				cow.play();
 
-			if (imgSource === "../p1_online_game/images/chicken.jpg") {
-				chicken.play();
+			} else if (imgSource === "../p1_online_game/images/dog1.jpg") {
+				dog.play();
 
-				} else if (imgSource === "../p1_online_game/images/cow.jpg") {
-					cow.play();
+			} else if (imgSource === "../p1_online_game/images/goat.jpg") {
+				goat.play();
 
-				} else if (imgSource === "../p1_online_game/images/dog1.jpg") {
-					dog.play();
+			} else if (imgSource === "../p1_online_game/images/horse.png") {
+				horse.play();
 
-				} else if (imgSource === "../p1_online_game/images/goat.jpg") {
-					goat.play();
+			} else if (imgSource === "../p1_online_game/images/pig.png") {
+				pig.play();
 
-				} else if (imgSource === "../p1_online_game/images/horse.png") {
-					horse.play();
+			} else if (imgSource === "../p1_online_game/images/sheep.jpg") {
+				sheep.play();
 
-				} else if (imgSource === "../p1_online_game/images/pig.png") {
-					pig.play();
-
-				} else if (imgSource === "../p1_online_game/images/sheep.jpg") {
-					sheep.play();
-
-				} else if (imgSource === "../p1_online_game/images/unhappy_farmer.jpg") {
-					farmer.play();
-			}
+			} else if (imgSource === "../p1_online_game/images/unhappy_farmer.jpg") {
+				farmer.play();
+		}
 		
 				
-			
-		})
-
-
-	
 	}
 				
 	

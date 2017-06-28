@@ -2,7 +2,7 @@ body{
 	background-color: lightblue;
 }
 
-#intro {
+.base{
 	height: 700px;
 	width: 700px;
 	background-color: white;
@@ -73,10 +73,10 @@ h1 {
     border-radius: 10px;
     cursor: pointer;
     padding: 10px 30px;
-    margin: 30px;
     margin: 246px;
     position: relative;
     font-family: Arial;
+    display: inline;
 
 }
 
@@ -98,9 +98,15 @@ h1 {
 	opacity: 1; 
 }
 
-.winner {
-	font-size: 30px
+#reset {
+	text-decoration: none;
+	color: black;
+}
+
+#win-message p {
+	font-size: 30px;
 	color: orange;
+	text-align: center;
 }
 
 

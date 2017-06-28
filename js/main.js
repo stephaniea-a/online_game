@@ -18,37 +18,38 @@ $(function () {
 
 	
 	$gameButtons.hide();
-	$begin.on('click', function(event){
-		
+	$('#reset').click(function (event){
+  			//debugger
+			reset();
+		});
+
+	$begin.click(function(event){
+
 		$intro.slideUp();
 		$gameButtons.show();
 		createNewBoard();
 
-		$('#tiles div').click(function(event){
-  			$(this).addClass('selected');
-			$(this).children().show();
-			var imgSource = $(this).find('img').attr("src");
-			animalSounds(imgSource);
-			
-			//counting clicks and adding to counter
-			$counter.html(function(i, val) { return + val + 1 });
-			displayTile();
-
-			// $('#reset').click(function (event){
-			// 	reset();
-			// });
-  		});
 	});
+
+
+	$('#tiles').on('click', 'div', function(event){
+		$(this).addClass('selected');
+		$(this).children().show();
+
+		var imgSource = $(this).find('img').attr("src");
+		animalSounds(imgSource);
+		displayTile();
+		
+		});
 
 
 	// Shuffle Array using Fisher-Yates method
 	function shuffle(array) {
   		var currentIndex = array.length, temporaryValue, randomIndex;
   		while (0 !== currentIndex) {
-  			// Pick a remaining element...
     		randomIndex = Math.floor(Math.random() * currentIndex);
     		currentIndex -= 1;
-		    // And swap it with the current element.
+
 		    temporaryValue = array[currentIndex];
 		    array[currentIndex] = array[randomIndex];
 		    array[randomIndex] = temporaryValue;
@@ -66,11 +67,13 @@ $(function () {
 	        $('div img').hide();
   	} 
 
-  	// Display Tiles
   	function displayTile (){
   		var $selected = $('.selected');
   		var $match = $('.match');
   		var pair = new Audio("ping.mp3");
+
+  		counter = counter + 1;
+        $counter.html(counter);
 
   		if($selected.length === 2) {
 
@@ -99,22 +102,10 @@ $(function () {
 
     }
 
-    //when Reset button is clicked
-
-    function reset() {
-    	$gameButtons.hide();
-    	shuffle(arrayOfImages);
-    	$('#tiles').html("");
-    	createNewBoard();
-
-		Counter = 0;
-		$counter.html("" + Counter);
-		return false;
-	}
-
 	function winner (){
-		var clap = new Audio()
+		var clap = new Audio("clap.mp3");
 		clap.play();
+
 		setTimeout(function(){
 			var $gameButtons = $('#gameButtons');
 			$gameButtons.fadeOut();
@@ -122,13 +113,14 @@ $(function () {
   			
   		}, 2000);
 
-  		setTimeout(function(){
+  		setTimeout(function (){
+  			var winMessage = 
+  			"<p><strong>Congratulations!</strong></p><p>You have saved the farm and all the animals!</p><p>You completed this in " + counter + " clicks.</p>"
   			$('#intro').fadeIn();
-  			$('#begin').hide();
-  			//$('#how-to-play p').addClass('winner');
+  			$('#begin').html('Play again?');
   			$('#how-to-play').html
-  			('<p> Congratulations! You have saved the farm and all the animals!</p>').addClass('winner');
-  			$('#begin').show().html('Play again?')
+  			(winMessage).css
+  			({'color':'orange','font-size' : '30px', 'text-align' : 'center'});
   		}, 3000);
   		
 	}
@@ -174,6 +166,15 @@ $(function () {
 		
 				
 	}
+
+	// function reset() {
+	// 	$('#tiles').html("");
+ //    	createNewBoard();
+
+	// 	count = 0;
+	// 	$counter.html("" + count);
+
+	// }
 				
 	
 

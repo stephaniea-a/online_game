@@ -18,10 +18,10 @@ $(function () {
 
 	
 	$gameButtons.hide();
-	$('#reset').click(function (event){
-  			//debugger
-			reset();
-		});
+	// $('#reset').click(function (event){
+ //  			//debugger
+	// 		reset();
+	// 	});
 
 	$begin.click(function(event){
 
@@ -115,12 +115,14 @@ $(function () {
 
   		setTimeout(function (){
   			var winMessage = 
-  			"<p><strong>Congratulations!</strong></p><p>You have saved the farm and all the animals!</p><p>You completed this in " + counter + " clicks.</p>"
+  			'<p class="win-message"><strong>Congratulations!</strong></p><p>You have saved the farm and all the animals!</p><p>You completed this in' + counter + 'clicks.</p>'
   			$('#intro').fadeIn();
-  			$('#begin').html('Play again?');
-  			$('#how-to-play').html
-  			(winMessage).css
-  			({'color':'orange','font-size' : '30px', 'text-align' : 'center'});
+  			$('#begin').html('<a class="link" href="index.html">Play again?</a>');
+  			$('.how-to-play').html
+  			(winMessage).addClass('win-message');
+  			// $('#how-to-play').html
+  			// (winMessage).css
+  			// ({'color':'orange','font-size' : '30px', 'text-align' : 'center'});
   		}, 3000);
   		
 	}

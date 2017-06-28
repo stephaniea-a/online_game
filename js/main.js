@@ -27,7 +27,6 @@ $(function () {
 		$('#tiles div').click(function(event){
   			$(this).addClass('selected');
 			$(this).children().show();
-			//debugger
 			var imgSource = $(this).find('img').attr("src");
 			animalSounds(imgSource);
 			
@@ -71,26 +70,25 @@ $(function () {
   	function displayTile (){
   		var $selected = $('.selected');
   		var $match = $('.match');
+  		var pair = new Audio("ping.mp3");
+
   		if($selected.length === 2) {
 
   			var src1 = $selected.eq(1).find('img').attr('src');
   			var src2 = $selected.eq(0).find('img').attr('src');
 
   			if (src1 === src2) {
-  				var pair = new Audio("ping.mp3")
 				pair.play();
   				$selected.removeClass('selected');
   				$selected.find('img').addClass('match');
 
   				if($('.match').length === 16) {
   					winner();
-  					
-  				} else {
-  					return $match;
   				}
 
   			} else {
   				$selected.removeClass('selected');
+				
 				setTimeout(function() {
 					$selected.find('img').fadeOut();
 				}, 1000);
@@ -115,6 +113,8 @@ $(function () {
 	}
 
 	function winner (){
+		var clap = new Audio()
+		clap.play();
 		setTimeout(function(){
 			var $gameButtons = $('#gameButtons');
 			$gameButtons.fadeOut();
@@ -125,9 +125,9 @@ $(function () {
   		setTimeout(function(){
   			$('#intro').fadeIn();
   			$('#begin').hide();
-  			$('#how-to-play p').addClass('winner');
+  			//$('#how-to-play p').addClass('winner');
   			$('#how-to-play').html
-  			('<p> Congratulations! You have saved the farm and all the animals!</p>');
+  			('<p> Congratulations! You have saved the farm and all the animals!</p>').addClass('winner');
   			$('#begin').show().html('Play again?')
   		}, 3000);
   		

@@ -98,7 +98,7 @@ h1 {
 	opacity: 1; 
 }
 
-.winner p {
+.winner {
 	font-size: 30px
 	color: orange;
 }

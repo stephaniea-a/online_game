@@ -18,11 +18,6 @@ $(function () {
 
 	
 	$gameButtons.hide();
-	// $('#reset').click(function (event){
- //  			//debugger
-	// 		reset();
-	// 	});
-
 	$begin.click(function(event){
 
 		$intro.slideUp();
@@ -33,8 +28,10 @@ $(function () {
 
 
 	$('#tiles').on('click', 'div', function(event){
-		$(this).addClass('selected');
-		$(this).children().show();
+		if (!$(this).hasClass('match')) {
+			$(this).addClass('selected');
+			$(this).children().show();
+		}
 
 		var imgSource = $(this).find('img').attr("src");
 		animalSounds(imgSource);
@@ -42,8 +39,6 @@ $(function () {
 		
 		});
 
-
-	// Shuffle Array using Fisher-Yates method
 	function shuffle(array) {
   		var currentIndex = array.length, temporaryValue, randomIndex;
   		while (0 !== currentIndex) {
@@ -57,7 +52,7 @@ $(function () {
 		  return array;
 	} 
 
-	function createNewBoard() {
+	function createNewBoard () {
 
 		shuffle(arrayOfImages);
 	  	for (var i = 0; i < arrayOfImages.length; i++) {
@@ -83,7 +78,7 @@ $(function () {
   			if (src1 === src2) {
 				pair.play();
   				$selected.removeClass('selected');
-  				$selected.find('img').addClass('match');
+  				$selected.addClass('match');
 
   				if($('.match').length === 16) {
   					winner();
@@ -115,14 +110,11 @@ $(function () {
 
   		setTimeout(function (){
   			var winMessage = 
-  			'<p class="win-message"><strong>Congratulations!</strong></p><p>You have saved the farm and all the animals!</p><p>You completed this in' + counter + 'clicks.</p>'
+  			'<p class="win-message"><strong>Congratulations!</strong></p><p>You have saved the farm and all the animals!</p><p>You completed this in ' + counter + ' clicks.</p>'
   			$('#intro').fadeIn();
   			$('#begin').html('<a class="link" href="index.html">Play again?</a>');
   			$('.how-to-play').html
   			(winMessage).addClass('win-message');
-  			// $('#how-to-play').html
-  			// (winMessage).css
-  			// ({'color':'orange','font-size' : '30px', 'text-align' : 'center'});
   		}, 3000);
   		
 	}

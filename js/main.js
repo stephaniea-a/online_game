@@ -16,10 +16,14 @@ $(function () {
 	var $intro = $('#intro');
 	var counter = 0;
 
+	var backMusic = new Audio("audio/old_macdonald.mp3");
+	backMusic.play();
+
 	
 	$gameButtons.hide();
 	$begin.click(function(event){
 
+		backMusic.pause();
 		$intro.slideUp();
 		$gameButtons.show();
 		createNewBoard();
@@ -65,7 +69,7 @@ $(function () {
   	function displayTile (){
   		var $selected = $('.selected');
   		var $match = $('.match');
-  		var pair = new Audio("ping.mp3");
+  		var pair = new Audio("audio/ping.mp3");
 
   		counter = counter + 1;
         $counter.html(counter);
@@ -98,7 +102,7 @@ $(function () {
     }
 
 	function winner (){
-		var clap = new Audio("clap.mp3");
+		var clap = new Audio("audio/clap.mp3");
 		clap.play();
 
 		setTimeout(function(){
@@ -122,16 +126,15 @@ $(function () {
 
 	function animalSounds (imgSource){
 
-		var chicken = new Audio("chicken.mp3");
-		var cow = new Audio("cow.mp3");
-		var dog = new Audio("dog.mp3");
-		var goat = new Audio("goat.mp3");
-		var horse = new Audio("horse.mp3");
-		var pig = new Audio("pig.mp3");
-		var sheep = new Audio("sheep.mp3");
-		var farmer = new Audio("farmer.mp3");
+		var chicken = new Audio("audio/chicken.mp3");
+		var cow = new Audio("audio/cow.mp3");
+		var dog = new Audio("audio/dog.mp3");
+		var goat = new Audio("audio/goat.mp3");
+		var horse = new Audio("audio/horse.mp3");
+		var pig = new Audio("audio/pig.mp3");
+		var sheep = new Audio("audio/sheep.mp3");
+		var farmer = new Audio("audio/farmer1.mp3");
 		
-		//var imgSource = $(this).find('img').attr("src");
 
 		if (imgSource === "../p1_online_game/images/chicken.jpg") {
 			chicken.play();

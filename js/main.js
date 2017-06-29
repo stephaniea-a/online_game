@@ -22,6 +22,8 @@ $(function () {
 	
 	$gameButtons.hide();
 	$begin.click(function(event){
+        counter = 0;
+        $counter.html(counter);
 
 		backMusic.pause();
 		$intro.slideUp();

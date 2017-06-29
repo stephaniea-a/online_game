@@ -17,11 +17,8 @@ An online game created with HTML, CSS and Javascript.
 
 This is a matching squares memory game. Click on the squares to uncover the animals. Remember the position of the animals in order to make a pair and complete the game.
 
-## Technologies
-HTML
-CSS
-Javascript
-Jquery
+## Technologies Used
+This game was created using HTML, CSS, Javascript and Jquery. Audio files
 Audio files
 
 ## Future Modifications

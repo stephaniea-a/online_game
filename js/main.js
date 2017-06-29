@@ -1,11 +1,11 @@
 $(function () {
 
-	var arrayOfImages = ['../p1_online_game/images/unhappy_farmer.jpg','../p1_online_game/images/chicken.jpg',
-	'../p1_online_game/images/cow.jpg','../p1_online_game/images/dog1.jpg','../p1_online_game/images/goat.jpg',
-	'../p1_online_game/images/horse.png','../p1_online_game/images/pig.png', '../p1_online_game/images/sheep.jpg', 
-	'../p1_online_game/images/unhappy_farmer.jpg','../p1_online_game/images/chicken.jpg',
-	'../p1_online_game/images/cow.jpg','../p1_online_game/images/dog1.jpg','../p1_online_game/images/goat.jpg',
-	'../p1_online_game/images/horse.png','../p1_online_game/images/pig.png', '../p1_online_game/images/sheep.jpg'];
+	var arrayOfImages = ['images/unhappy_farmer.jpg','images/chicken.jpg',
+	'images/cow.jpg','images/dog1.jpg','images/goat.jpg',
+	'images/horse.png','images/pig.png', 'images/sheep.jpg', 
+	'images/unhappy_farmer.jpg','images/chicken.jpg',
+	'images/cow.jpg','images/dog1.jpg','images/goat.jpg',
+	'images/horse.png','images/pig.png', 'images/sheep.jpg'];
 
 	var $gameBoard = $('#gameBoard');
 	var $gameButtons = $('#gameButtons');

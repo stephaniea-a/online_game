@@ -145,28 +145,28 @@ $(function () {
 		var farmer = new Audio("audio/farmer1.mp3");
 		
 
-		if (imgSource === "../p1_online_game/images/chicken.jpg") {
+		if (imgSource === "images/chicken.jpg") {
 			chicken.play();
 
-			} else if (imgSource === "../p1_online_game/images/cow.jpg") {
+			} else if (imgSource === "images/cow.jpg") {
 				cow.play();
 
-			} else if (imgSource === "../p1_online_game/images/dog1.jpg") {
+			} else if (imgSource === "images/dog1.jpg") {
 				dog.play();
 
-			} else if (imgSource === "../p1_online_game/images/goat.jpg") {
+			} else if (imgSource === "images/goat.jpg") {
 				goat.play();
 
-			} else if (imgSource === "../p1_online_game/images/horse.png") {
+			} else if (imgSource === "images/horse.png") {
 				horse.play();
 
-			} else if (imgSource === "../p1_online_game/images/pig.png") {
+			} else if (imgSource === "images/pig.png") {
 				pig.play();
 
-			} else if (imgSource === "../p1_online_game/images/sheep.jpg") {
+			} else if (imgSource === "images/sheep.jpg") {
 				sheep.play();
 
-			} else if (imgSource === "../p1_online_game/images/unhappy_farmer.jpg") {
+			} else if (imgSource === "images/unhappy_farmer.jpg") {
 				farmer.play();
 		}
 		

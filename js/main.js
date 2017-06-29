@@ -28,6 +28,8 @@ $(function () {
 		backMusic.pause();
 		$intro.slideUp();
 		$gameButtons.show();
+		
+		$('#tiles').html("");
 		createNewBoard();
 
 	});

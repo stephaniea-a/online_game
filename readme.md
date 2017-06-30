@@ -2,7 +2,7 @@
 
 ## Objective
 
-This is a matching squares memory game.
+A matching squares memory game in which players must use their memory in order to match animal pairs.
 
 ## How to Run
 
@@ -21,7 +21,7 @@ Click on the squares to uncover the animals. Remember the position of the animal
 ![](/grid.png)
 
 ## Technologies Used
-This game was created using HTML, CSS, Javascript and Jquery for DOm manipulation. Audio files and images have also been stored.
+This game was created using HTML, CSS, Javascript and Jquery for DOM manipulation. Audio files and images have also been stored.
 
 ## Future Modifications
 

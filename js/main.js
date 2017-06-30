@@ -123,11 +123,6 @@ $(function () {
   			$('#begin').html('<a class="link" href="index.html">Play again?</a>');
   			$('.how-to-play').html
   			(winMessage).addClass('win-message');
-
-  		// 	count = 0;
-  		// 	var $counter = $('#counter')
-	 		// $counter.html("" + count);
-  			
   		}, 3000);
   		
 	}
@@ -171,18 +166,7 @@ $(function () {
 		}
 		
 				
-	}
-
-	// function reset() {
-	// 	$('#tiles').html("");
- //    	createNewBoard();
-
-	// 	count = 0;
-	// 	$counter.html("" + count);
-
-	// }
-				
-	
+	}			
 
 
 });

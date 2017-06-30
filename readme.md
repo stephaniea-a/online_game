@@ -2,15 +2,13 @@
 
 ## Objective
 
-An online game created with HTML, CSS and Javascript.
+This is a matching squares memory game.
 
 ## How to Run
 
-1) Clone or download 
+1) Clone or download this repository from git@github.com:stephaniea-a/online_game.git
 
-2) git@github.com:stephaniea-a/online_game.git
-
-3) Open index.html
+2) Open index.html in the terminal to start the game
 
 ## Demo Site
 
@@ -19,11 +17,11 @@ https://stephaniea-a.github.io/online_game/
 
 ## How to play
 
-This is a matching squares memory game. Click on the squares to uncover the animals. Remember the position of the animals in order to make a pair and complete the game.
-![](/Users/Tech-A12/Desktop/grid.png)
+Click on the squares to uncover the animals. Remember the position of the animals in order to make a pair and complete the game.
+![](/grid.png)
 
 ## Technologies Used
-This game was created using HTML, CSS, Javascript and Jquery. Audio files and images have also been stored.
+This game was created using HTML, CSS, Javascript and Jquery for DOm manipulation. Audio files and images have also been stored.
 
 ## Future Modifications
 
